@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class AlquilerVehiculos : MonoBehaviour
 {
-    public Vehiculo[] vehiculos;
+    public GameObject[] vehiculos;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -17,12 +19,22 @@ public class AlquilerVehiculos : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.R))
         {
-
+            DesactivarTodosLosVehiculos();
+            vehiculos[Random.Range(0, vehiculos.Length)].SetActive(true);
         }   
     }
-
     void ResetearVehiculos()
     {
+        DesactivarTodosLosVehiculos();
+        vehiculos[0].SetActive(true);
+    }
 
+    void DesactivarTodosLosVehiculos() 
+    {
+        for (int i =0; i< vehiculos.Length; i++)
+        foreach(GameObject V in vehiculos)
+        {
+           vehiculos[i].SetActive(false);
+        }
     }
 }
